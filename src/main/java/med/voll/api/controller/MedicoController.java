@@ -29,7 +29,7 @@ public class MedicoController {
     @GetMapping // Post chama a lista de retorno - GET = Pegar dados
     public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable) { // Pageable = Paginação
         // Stream e Map para converter lista de Medico para lista de DadosListagemMedico
-        return repository.findAll(pageable).map(DadosListagemMedico::new);
+        return repository.findAllByAtivoTrue(pageable).map(DadosListagemMedico::new);
     }
 
     @PutMapping // Post chama o atualizar() - PUT = Atualizar dados
@@ -38,5 +38,14 @@ public class MedicoController {
         //Trazer os dados atuais do médico pelo Id
         var medico = repository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}") // Delete chama o excluir() - Deletar dados
+    @Transactional
+    public void excluir(@PathVariable Long id) { // @PathVariable = Parâmetro Id da URL
+        //Trazer os dados atuais do médico pelo Id
+        var medico = repository.getReferenceById(id);
+        // Trocar o Status para Inativo
+        medico.excluir();
     }
 }
