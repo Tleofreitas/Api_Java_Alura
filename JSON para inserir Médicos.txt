@@ -1,0 +1,27 @@
+"nome" : "Rodrigo Ferreira",
+	"email": "rodrigo.ferreira@voll.med",
+	"telefone": "1112345678",
+	"crm": "123456",
+	"especialidade": "ORTOPEDIA",
+	"endereco": {
+		"logradouro": "rua um",
+		"bairro": "bairro",
+		"cep": "12345678",
+		"cidade": "Brasília",
+		"uf": "DF",
+		"numero": "1",
+		"complemento": "complemento"
+
+"nome" : "Thiago Freitas",
+"email": "thiago.freitas@voll.med",
+"telefone": "11951221949",
+"crm": "123457",
+"especialidade": "GINECOLOGIA",
+"endereco": {
+ "logradouro": "rua DOIS",
+ "bairro": "bairro",
+ "cep": "12345679",
+ "cidade": "São Paulo",
+ "uf": "SP",
+ "numero": "271",
+ "complemento": "Casa"
