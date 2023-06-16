@@ -1,3 +1,4 @@
+CURSO 1 ______________________________________________________________________________________________
 1 ----------------------------------------------------
 Mapear requisições POST em uma classe Controller;
 Enviar requisições POST para a API utilizando o Insomnia;
@@ -22,3 +23,10 @@ Escrever um código para atualizar informações de um registro no banco de dado
 Mapear requisições DELETE com a anotação @DeleteMapping;
 Mapear parâmetros dinâmicos em URL com a anotação @PathVariable;
 Implementar o conceito de exclusão lógica com o uso de um atributo booleano.
+
+CURSO 2 ______________________________________________________________________________________________
+1 ----------------------------------------------------
+Utilizar a classe ResponseEntity, do Spring, para personalizar os retornos dos métodos de uma classe Controller;
+Modificar o código HTTP devolvido nas respostas da API;
+Adicionar cabeçalhos nas respostas da API;
+Utilizar os códigos HTTP mais apropriados para cada operação realizada na API.
