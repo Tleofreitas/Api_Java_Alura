@@ -24,7 +24,7 @@ public class TratadorDeErros {
         var erros = ex.getFieldErrors();
 
         // Converter a lista inteira do retorno do erro para o DTO
-        // com as informações que queremos
+//        // com as informações que queremos
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
     }
 
