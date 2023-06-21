@@ -18,6 +18,7 @@ public class AutenticacaoController {
 
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
+        // Classe do Spring security que faz o processo de autenticação
         var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         var authentication = manager.authenticate(token);
 
