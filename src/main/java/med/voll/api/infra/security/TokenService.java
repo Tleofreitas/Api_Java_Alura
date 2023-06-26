@@ -31,6 +31,21 @@ public class TokenService {
         }
     }
 
+    // Devolver o usuário se o token for validado
+    public String getSubject(String tokenJWT) {
+        try {
+            var algoritmo = Algorithm.HMAC256(secret); // secret = senha da API
+            return JWT.require(algoritmo)
+                    .withIssuer("API Voll.med")
+                    .build()
+                    .verify(tokenJWT)
+                    .getSubject();
+        } catch (JWTVerificationException exception){
+            // Excessão para Token inválido, incorreto ou expirado
+            throw new RuntimeException("Token JWT inválido, incorreto ou expirado!");
+        }
+    }
+
     private Instant dataExpiracao() {
         // Validade de 2 horas
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
