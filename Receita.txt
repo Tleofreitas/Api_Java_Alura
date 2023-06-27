@@ -1,0 +1,6 @@
+Controller, para mapear a requisição da nova funcionalidade;
+DTOs, que representam os dados que chegam e saem da API;
+Entidade JPA;
+Repository, para isolar o acesso ao banco de dados;
+Migration, para fazer as alterações no banco de dados;
+Regra de negócio.
