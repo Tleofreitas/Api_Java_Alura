@@ -1,6 +1,7 @@
 package med.voll.api.domain.consulta;
 
 import med.voll.api.domain.ValidacaoException;
+import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.domain.paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,16 @@ public class AgendaDeConsultas {
         consultaRepository.save(consulta);
     }
 
-    private void escolherMedico(DadosAgendamentoConsulta dados) {
+    private Medico escolherMedico(DadosAgendamentoConsulta dados) {
+        // Verificar se o médico foi escolhido
+        if (dados.idMedico() != null) {
+            return medicoRepository.getReferenceById(dados.idMedico());
+        }
+        // Verificar se a especialidade foi escolhido
+        if (dados.especialidade() == null) {
+            throw new ValidacaoException("Especialidade é obrigatória quando médico não for escolhido!");
+        }
+        // Médico aleatório se id nulo e especialidade foi escolhido
+        return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(), dados.data());
     }
 }
