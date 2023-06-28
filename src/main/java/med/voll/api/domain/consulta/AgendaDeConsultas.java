@@ -34,7 +34,7 @@ public class AgendaDeConsultas {
         // Carregar o medico pelo id
         var medico = escolherMedico(dados);
         // Gerar a Consulta
-        var consulta = new Consulta(null, medico, paciente, dados.data());
+        var consulta = new Consulta(null, medico, paciente, dados.data(), null);
         // Salvar a consulta no banco de dados
         consultaRepository.save(consulta);
     }
@@ -50,5 +50,14 @@ public class AgendaDeConsultas {
         }
         // Médico aleatório se id nulo e especialidade foi escolhido
         return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(), dados.data());
+    }
+
+    public void cancelar(DadosCancelamentoConsulta dados) {
+        if (!consultaRepository.existsById(dados.idConsulta())) {
+            throw new ValidacaoException("Id da consulta informado não existe!");
+        }
+
+        var consulta = consultaRepository.getReferenceById(dados.idConsulta());
+        consulta.cancelar(dados.motivo());
     }
 }
