@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Component
-public class ValidadorHorarioAntecedencia {
+public class ValidadorHorarioAntecedencia implements ValidadorAgendamentoDeConsulta {
     public void validar(DadosAgendamentoConsulta dados) {
         // Pegar o horário de agendamento
         var dataConsulta = dados.data();

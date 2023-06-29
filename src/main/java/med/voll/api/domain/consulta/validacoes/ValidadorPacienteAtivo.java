@@ -18,4 +18,4 @@ public class ValidadorPacienteAtivo implements ValidadorAgendamentoDeConsulta {
             throw new ValidacaoException("Consulta não pode ser agendada com paciente excluído");
         }
     }
-}}
+}

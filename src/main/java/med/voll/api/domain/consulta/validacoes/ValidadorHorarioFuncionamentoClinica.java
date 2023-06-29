@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.time.DayOfWeek;
 
 @Component
-public class ValidadorHorarioFuncionamentoClinica {
+public class ValidadorHorarioFuncionamentoClinica implements ValidadorAgendamentoDeConsulta{
     // Seg a sábado das 7 as 19
     public void validar(DadosAgendamentoConsulta dados) {
         var dataConsulta = dados.data();
