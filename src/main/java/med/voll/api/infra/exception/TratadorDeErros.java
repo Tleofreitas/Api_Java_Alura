@@ -1,6 +1,7 @@
 package med.voll.api.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
+import med.voll.api.domain.ValidacaoException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,8 +25,14 @@ public class TratadorDeErros {
         var erros = ex.getFieldErrors();
 
         // Converter a lista inteira do retorno do erro para o DTO
-//        // com as informações que queremos
+        // com as informações que queremos
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
+    }
+
+    // Capturar o erro 403 de Agendar Consultas e devolver personalizado
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratarErroRegraDeNegocio(ValidacaoException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
     // DTO internamente pois só será usado aqui
