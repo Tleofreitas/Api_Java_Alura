@@ -64,3 +64,13 @@ Liberar e restringir requisições, de acordo com a URL e o verbo do protocolo H
 
 CURSO 3 ______________________________________________________________________________________________
 1 ----------------------------------------------------
+Implementar uma nova funcionalidade no projeto;
+Avaliar quando é necessário criar uma classe Service na aplicação;
+Criar uma classe Service, com o objetivo de isolar códigos de regras de negócio, utilizando para isso a anotação @Service;
+Implementar um algoritmo para a funcionalidade de agendamento de consultas;
+Realizar validações de integridade das informações que chegam na API;
+Implementar uma consulta JPQL (Java Persistence Query Language) complexa em uma interface repository, utilizando para isso a anotação @Query.
+2 ----------------------------------------------------
+Isolar os códigos de validações de regras de negócio em classes separadas, utilizando nelas a anotação @Component do Spring;
+Finalizar a implementação do algoritmo de agendamento de consultas;
+Utilizar os princípios SOLID para deixar o código da funcionalidade de agendamento de consultas mais fácil de entender, evoluir e testar.

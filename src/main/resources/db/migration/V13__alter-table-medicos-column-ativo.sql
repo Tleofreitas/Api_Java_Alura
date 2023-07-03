@@ -1,0 +1,1 @@
+alter table medicos alter column ativo boolean;
