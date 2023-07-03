@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.medico.DadosListagemMedico;
@@ -15,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController // Carregar na inicialização do Projeto
 @RequestMapping("medicos") // Mapear URL /medicos
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
     // Métodos das Funcionalidades
 
